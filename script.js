@@ -24,7 +24,7 @@ const REVEAL_DELAY = 300;
 const API_WAIT = 4000;
 
 // A JavaScript class
-function WordleGame(answer)
+function Wordle(answer)
 {
     this.answer = answer;
     this.guesses = [];
@@ -198,7 +198,7 @@ function startGame()
         answer = WORDS[Math.floor(Math.random() * WORDS.length)];
     } while (answer == lastAnswer);
     lastAnswer = answer;
-    game = new WordleGame(answer);
+    game = new Wordle(answer);
 
     // Display the answer for each game in the console (to assist with debugging)
     console.log("Answer: " + answer);
@@ -374,8 +374,8 @@ function acceptGuess(guess)
 
     // After each guess report the following to the user using a visual cue such as
     // changing the background to indicate the status of each letter.
-    // Letters that are in the correct place. (usually green)
-    // Letters that are in the word but are in the wrong position.  (usually yellow)
+    // Letters are in the correct place. (usually green)
+    // Letters are in the word but are in the wrong position.  (usually yellow)
     letters.forEach((letter, col) => {
         setTimeout(() => {
             var tile = getTile(row, col);
