@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Wordle</h1>
+    <div class="stats-chip">Avg guesses: <strong id="avgGuesses">-</strong></div>
+  </header>
+
+  <main class="game">
+    <!-- Implement the game of Wordle similar to the NY Times version. In the game, the user
+         gets 6 tries to guess a 5 letter word. Each guess must be a 5 letter word. -->
+    <div id="board" class="board">
+      <script>drawBoard();</script>
+    </div>
+    <!-- Get the guess from the user using an input text field and a button.
+         Note: this is different from the online version. -->
+    <form name="guessForm" class="guess-form" onsubmit="return submitGuess()" autocomplete="off">
+      <input type="text" name="guess" id="guess" maxlength="5" placeholder="Type a 5-letter word">
+      <input type="submit" id="guessBtn" value="Check my Guess">
+    </form>
+    <p id="error" class="error"></p>
+    <p id="status" class="status"></p>
+    <!-- Include a button that will restart the game when clicked.
+         Hide the button until the game is won or lost. -->
+    <button type="button" id="restartBtn" class="btn restart hidden">Play again</button>
+    <!-- Display a used letter board indicating letters used.  The used letter board must
+         include a visual indicator of whether the used letter was correct/in the wrong place/ or not in the word. -->
+    <div id="keyboard" class="keyboard">
+      <script>drawKeyboard();</script>
+    </div>
+    <div class="legend">
+      <span><span class="swatch correct"></span>Right spot</span>
+      <span><span class="swatch present"></span>Wrong spot</span>
+      <span><span class="swatch absent"></span>Not in word</span>
+    </div>
+  </main>
+  <!-- If the user uses up all 6 guesses without guessing the word, show the answer word in a popup
+       (and show the button to restart the game). -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button type="button" id="modalClose" class="modal-close">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalMsg"></p>
+      <div id="modalWord" class="modal-word"></div>
+      <div class="modal-stats">
+        <div class="stat"><strong id="statPlayed">0</strong>Played</div>
+        <div class="stat"><strong id="statWinRate">0</strong>Win %</div>
+        <div class="stat"><strong id="statAvg">-</strong>Avg guesses</div>
+      </div>
+      <button type="button" id="modalPlayAgain" class="btn restart">Play again</button>
+    </div>
+  </div>
+</body>
+</html>

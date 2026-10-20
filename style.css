@@ -1,0 +1,231 @@
+html { height: 100%; }
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f5fb;
+  color: #222222;
+  position: relative;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #d6d3dc;
+  background-color: #ffffff;
+}
+.topbar h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+.stats-chip {
+  font-size: 14px;
+  color: #555555;
+}
+
+.game {
+  width: 520px;
+  margin: 20px auto;
+  padding: 20px 0 30px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+.tile {
+  width: 58px;
+  height: 46px;
+  margin: 3px;
+  border: 2px solid #222222;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.tile.filled  { border-color: #000000; }
+.tile.correct { background-color: #3a7d23; }
+.tile.present { background-color: #e8e78f; }
+.tile.absent  { background-color: #ffffff; }
+
+.row.shake .tile { border-color: #d0021b; }
+
+.guess-form {
+  margin-top: 14px;
+}
+.guess-form input[type="text"] {
+  width: 140px;
+  font-size: 14px;
+  padding: 1px 3px;
+  border: 1px solid #222222;
+}
+#guessBtn {
+  font-size: 13px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.error {
+  min-height: 18px;
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #d0021b;
+}
+.status {
+  min-height: 18px;
+  margin: 4px 0 10px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #3a7d23;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 26px;
+  cursor: pointer;
+}
+.btn:hover { opacity: .85; }
+.restart { margin-bottom: 14px; }
+
+.hidden { display: none; }
+
+.keyboard {
+  width: 100%;
+  margin-top: 6px;
+}
+.key-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.key {
+  width: 40px;
+  height: 48px;
+  margin: 0 3px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222222;
+  background-color: #e4e2e8;
+  border: 1px solid #c9c6cf;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.key.wide { width: 62px; font-size: 11px; }
+.key:hover { opacity: .8; }
+.key.correct { background-color: #3a7d23; color: #ffffff; border-color: #3a7d23; }
+.key.present { background-color: #e8e78f; border-color: #c9c86a; }
+.key.absent  { background-color: #8a8a8e; color: #ffffff; border-color: #8a8a8e; }
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #555555;
+}
+.legend > span {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  border: 1px solid #222222;
+  border-radius: 3px;
+}
+.swatch.correct { background-color: #3a7d23; }
+.swatch.present { background-color: #e8e78f; }
+.swatch.absent  { background-color: #8a8a8e; }
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .45);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.modal.hidden { display: none; }
+.modal-card {
+  position: relative;
+  width: 320px;
+  margin-top: 110px;
+  padding: 26px 22px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+.modal-card h2 {
+  margin: 0 0 6px;
+  font-family: Georgia, serif;
+  font-size: 26px;
+}
+.modal-card p { margin: 0 0 14px; color: #555555; }
+.modal-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 24px;
+  color: #777777;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.modal-word {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.mini {
+  width: 38px;
+  height: 38px;
+  margin: 0 2px;
+  border: 2px solid #222222;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.mini.correct { background-color: #3a7d23; color: #ffffff; }
+.mini.absent  { background-color: #8a8a8e; color: #ffffff; }
+.modal-stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: #666666;
+}
+.stat { margin: 0 12px; }
+.stat strong { display: block; font-size: 24px; color: #222222; }
+
+/* The game should be responsive down to 600px */
+@media (max-width: 600px) {
+  .game { width: 100%; margin: 0; }
+  .topbar h1 { font-size: 24px; }
+  .tile { width: 52px; height: 44px; }
+  .key { width: 30px; height: 44px; margin: 0 2px; font-size: 13px; }
+  .key.wide { width: 46px; font-size: 10px; }
+  .legend { font-size: 12px; }
+}
